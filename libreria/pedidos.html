@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>El lector de libros</title>
+	<meta name="author" content="Juan Manuel Rubio Rodríguez">
+</head>
+<body>
+		<header>
+			<img src="./Img/logo.jpg" width="100" height="100">
+			<h1>El lector de libros</h1>
+			<h2>Contando historias desde hace 100 años</h2>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="index.html">Inicio</a></li>
+				<li><a href="catalogo.html">Catálogo</a></li>
+				<li><a href="busqueda.html">Búsqueda</a></li>
+				<li><a href="tiendas.html">Tiendas</a></li>
+				<li><a href="pedidos.html">Pedidos</a></li>
+			</ul>
+		</nav>
+
+		<main>
+			<form action="procesar.php" method="get">
+				<div><img src="./Img/elviejoylapistola.jpg">
+				<p>Título: <span>VIEJO Y LA PISTOLA EL</span></p>
+				<p>Autor: <span>Grann David</span></p>
+				<p>ISBN: <span>9788439735687</span></p>
+				<p>Editorial: <span>Mondadori España</span></p>
+				<p>Año: <span>2018</span></p>
+				<p>La increíble historia del ladrón de bancos Forrest Tucker da título a esta colección de crímenes reales, tres relatos en los que el periodista David Grann demuestra por qué es considerado el mejor escritor de no-ficción del momento. Si «El viejo y la pistola» es la historia de un artista del atraco y la fuga carcelaria que a sus setenta y muchos años se niega a retirarse, «True Crime» sigue la retorcida investigación de un policía polaco convencido de que un novelista dejó pistas en su obra sobre un asesinato real. «El camaleón» relata cómo un impostor francés asume la identidad de un chico desaparecido en Texas y se infiltra en su familia para terminar preguntándose quién está engañando a quién.</p>
+				<p>PRECIO: <span>14.90 €</span></p>
+				</div>
+				<label>Nombre y apellidos<input type="text" name="nombre"></label>
+				<label>Dirección de envío<textarea name="direccion" cols="30" rows="5"></textarea></label>
+				<label>Email<input type="email" name="email"></label>
+				<label>Número de tarjeta<input type="text" name="tarjeta"></label>
+				<label>Fecha de caducidad<input type="date" name="fecha"></label>
+				<label>CVC<input type="number" name="cvc"></label>
+				<label>Marque si procede
+					<label><input type="checkbox" name="pedido[]" value="condiciones">He leído y acepto las condiciones de compra</label>
+					<label><input type="checkbox" name="pedido[]" value="informacion">Deseo recibir información sobre novedades</label>
+					<label><input type="checkbox" name="pedido[]" value="regalo">Deseo el envío envuelto para regalo</label>
+				</label>
+				<input type="submit" value="Hacer pedido"/>
+			</form>
+		</main>
+
+		<aside>
+			<section>
+				<h1>Más vendidos</h1>
+				<ul>
+					<li>El Quijote</li>
+					<li>Ulises</li>
+					<li>Arguiñano cocina</li>
+				</ul>
+			</section>
+			<section>
+				<h1>Más populares</h1>
+				<ul>
+					<li>Charles Dickens</li>
+					<li>Julio Verne</li>
+					<li>Edgar Allan Poe</li>
+				</ul>
+			</section>
+		</aside>
+		<footer>
+			<section>
+				<ul>
+					<li>Granada</li>
+					<li>
+						<ul>
+							<li>Reyes Católicos (555 112233)</li>
+							<li>Avda Dilar (555 332211)</li>
+						</ul>
+					</li>
+					<li>Málaga</li>
+					<li>
+						<ul>
+							<li>Marqués de Larios (555 221133)</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section>
+				<img src="./Img/correo.jpeg" width="5%" height="5%">
+				<p>lectordelibros@gemeil.com</p>
+				<a href="http://www.twitter.com"><img src="./Img/twitter.png" width="20" height="20"></a>
+				<a href="http://www.facebook.com"><img src="./Img/facebook.png" width="20" height="20"></a>
+				<a href="http://www.rss.com"><img src="./Img/rss.jpeg" width="20" height="20"></a>
+			</section>
+			<section>
+				<ul>
+					<li>La empresa</li>
+					<li>Política de envío</li>
+					<li>Preguntas frecuentes</li>
+					<li>Mapa del sitio</li>
+				</ul>
+			</section>
+		</footer>
+
+</body>
+</html>
