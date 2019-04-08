@@ -1,0 +1,290 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+/* header */
+
+header {
+	width: 100%;
+	min-width: 600px;
+	border-width: 5px;
+	border-color: #00C5FF;
+	border-style: solid;
+	display: flex;
+	justify-content: center;
+}
+
+header img{
+	width: 100px;
+	height: 100px;
+	margin: 3%;
+}
+
+#titulo {
+	display: flex;
+	flex-direction: column;
+	width: 60%;
+	margin-left: 5%;
+}
+
+#titulo h1 {
+	margin: 10%;
+	margin-bottom: 0%;
+	margin-left: 0%;
+	font-size: 80px;
+	font-weight: 1000;
+	letter-spacing: 10px;
+	align-self: flex-start;
+}
+
+#titulo h2 {
+	
+}
+
+nav {
+	min-width: 600px;
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	background-color: #2e518b;
+}
+
+/* menu */
+
+#menu ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	float: left;
+}
+
+/* items del menu */
+
+#menu ul li {
+ 	background-color: #2e518b;
+ 	margin: 0;
+ 	padding: 0;
+ 	float: left;
+}
+
+/* enlaces del menu */
+
+#menu ul a {
+ 	display: block;
+ 	color: #fff;
+ 	text-decoration: none;
+ 	font-weight: 400;
+ 	font-size: 15px;
+ 	padding: 10px;
+ 	font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+ 	text-transform: uppercase;
+ 	letter-spacing: 1px;
+}
+
+/* efecto al pasar el ratón por los items del menu */
+
+#menu ul li:hover {
+ 	background: #5b78a7;
+}
+
+#cuerpo {
+	min-width: 600px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+main {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	min-width: 450px;
+	border-width: 5px;
+	border-color: #00C5FF;
+	border-style: solid;
+	width: 70%;
+}
+
+main section {
+	min-width: 300px;
+	width: 400px;
+	height: auto;
+	padding: 3%;
+}
+
+main section img {
+	width: 35%;
+	height: auto;
+}
+
+main section h1 {
+
+}
+
+#noticia > p {
+	font-size: 22px;
+}
+
+#noticia > h1 {
+	font-size: 30px;
+}
+
+aside {
+	display: flex;
+	flex-direction: column;
+	min-width: 300px;
+	border-width: 5px;
+	border-color: #00C5FF;
+	border-style: solid;
+	padding: 3%;
+	width: 20%;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+aside section {
+	padding: 2%;
+}
+
+aside ul {
+	list-style-position: inside;
+}
+
+aside ul li {
+	list-style-type: square;
+}
+
+footer {
+	min-width: 600px;
+	display: flex;
+	border-width: 5px;
+	border-color: #00C5FF;
+	border-style: solid;
+	width: 100%;
+	padding: 2%;
+	margin-top: 10px;
+}
+
+footer section {
+	width: 33%;
+}
+
+footer section ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+footer section ul li {
+	font-size: 20px;
+	font-variant: small-caps;
+	font-weight: 1000;
+}
+
+footer section ul li ul li {
+	font-size: 15px;
+	font-weight: 100;
+}
+
+footer section img {
+	width: 5%;
+	min-width: 50px;
+	height: auto;
+	padding: 2%;
+}
+
+@media (max-width: 1000px){
+	#cuerpo {
+		flex-direction: column;
+		flex-wrap: wrap;
+	}
+	main {
+		width: 100%;
+	}
+	aside {
+		width: 100%;
+		margin: 0px;
+		margin-top: 1%;
+	}
+}
+
+#catalogo {
+	min-width: 300px;
+}
+
+section table tr td img {
+	width: 100%;
+	height: auto;
+	padding: 2%;
+}
+
+section table tr td p {
+	font: italic bold 12px/30px Georgia, serif;
+}
+
+section table tr td {
+	padding: 10px;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+}
+
+form input[type="submit"]{
+	border-radius: 5px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+form input[type="text"]{
+	border-radius: 5px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 5px;
+}
+
+form input[type="date"]{
+	border-radius: 5px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 5px;
+}
+
+form input[type="number"]{
+	border-radius: 5px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 5px;
+}
+
+form input[type="email"]{
+	border-radius: 5px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 5px;
+}
+
+form textarea{
+	border-radius: 5px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 5px;
+}
+
+form label {
+	display:flex;
+	padding: 2%;
+}
