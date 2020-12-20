@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="templates/css/login.css"/>
+<link rel="stylesheet" type="text/css" href="templates/css/loged.css"/>
+<link rel="stylesheet" type="text/css" href="templates/css/incidencia.css"/>
+
+{% endblock %}
+{% block main %}
+	<section id="incidencias">
+		{% for incidencia in incidencias%}
+		{% include 'componentes/incidencia.html' %}
+		{% endfor %}
+	</section>
+</section>
+{% endblock %}
+{% block javaScript %}
+<script src="templates/js/incidencia.js"></script>
+{% endblock %} 

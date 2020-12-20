@@ -1,0 +1,16 @@
+#formulario_incidencia {
+	margin: 2em;
+	background-color: #80b3ff;
+	padding: 1em; 
+	border-radius: 1em; 
+}
+#msgErrorPass {
+	color: red; 
+}
+
+#formulario_incidencia h3 {
+	text-align: center;
+}
+#formulario_incidencia-formulario > h4{
+	margin-bottom: 1em; 
+}

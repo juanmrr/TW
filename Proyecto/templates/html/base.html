@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title>Recomendación de libros</title>
+	{% block bootstrap_css %}
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	{% endblock %}
+    {% block jquery %}
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    {% endblock %}
+    {% block bootstrap_js %}
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    {% endblock %}
+    {% block css_base %}
+    <link rel="stylesheet" type="text/css" href="templates/css/base.css"/>
+    {% endblock %}
+    {% block fontawesome %}
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+    {% endblock %}
+    {% block css %}{% endblock %}
+</head>
+<body>
+	<header class="row">
+		<section id="header-logo" class="col-sm-3 flex-container align-items-center">
+			<a href="./"><img class="img-fluid" src="templates/img/logo2.png" alt="Logo"></a>
+		</section>
+		<section id="header-titulo" class="col-sm-6 flex-container justify-content-center align-items-center">
+			<a href="./"><p>Quéjate ¡No te calles!</p></a>
+		</section>
+		<section class="col-sm-3">
+		 	{% if tipoUsuario == "Visitante" %}
+			{% include 'componentes/login.html' %}
+			{% endif %}
+		</section>
+		<section id="header-subtitulo" class="col-sm-12 flex-container justify-content-center">
+			<p>Página web para informar de incidencias en limpiolandia.</p>
+		</section>
+	</header>
+	{% block nav %}
+	<nav class="row">
+		<!--
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="#">WebSiteName</a>
+	    </div>
+		    <ul class="nav navbar-nav">
+		      <li class="active"><a href="#">Home</a></li>
+		      <li><a href="#">Page 1</a></li>
+		      <li><a href="#">Page 2</a></li>
+		      <li><a href="#">Page 3</a></li>
+		      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+			    <i class="fa fa-bars"></i>
+			  </a>
+		    </ul>
+	  	</div>
+	  	-->
+	  	<div class="topnav flex-container justify-content-space-around col-sm-12" id="myTopnav">
+		  	<a href="." class="active">Ver incidencias</a>
+		  	{% if tipoUsuario %}
+		  	{% if tipoUsuario == "Colaborador" or tipoUsuario == "Administrador" %}
+		  	<a href="./formularioIncidencia.php?action=insertar">Nueva incidencia</a>
+		  	<a href="./misIncidencias.php">Mis incidencias</a>
+		  	{% endif %}
+		  	{% if tipoUsuario == "Administrador" %}
+		  	<a href="#">Gestión de usuarios</a>
+		  	<a href="#">Ver log</a>
+		  	<a href="http://localhost/phpmyadmin/">Gestión de la BBDD</a>
+		  	{% endif %}
+		  	{% endif %}
+		  	<a href="javascript:void(0);" class="icon" onclick="mainMenuFunction()">
+		  	  <i class="fa fa-bars"></i>
+		  	</a>
+		</div>
+	</nav>
+	{% endblock %}
+	<div id="principal" class="row">
+		
+	<main class="col-sm-9">
+		{% block main %}{% endblock %}
+	</main>
+	<aside class="col-sm-3 border-left">
+		{% if tipoUsuario == "Colaborador" or tipoUsuario == "Administrador" %}
+		{% include 'componentes/loged.html' %}
+		{% endif %}
+		{% if tipoUsuario == "Visitante" %}
+		{% include 'componentes/login.html' %}
+		{% endif %}
+		<section id="los-que-mas-anaden">
+			<h3>Los que más añaden:</h3>
+			<section id="los-que-mas-anaden-usuarios">
+				<ol>
+					<li>
+						<article class="los-que-mas-anaden-usuarios-usuario flex-container">
+							<section class="los-que-mas-anaden-usuarios-usuario-puntos flex-container justify-content-center">
+								<p>(5)</p>
+							</section>
+							<section class="los-que-mas-anaden-usuarios-usuario-nombre">
+								<p>Pedro</p>
+							</section>
+						</article>
+					</li>
+					<li>
+						<article class="los-que-mas-anaden-usuarios-usuario flex-container">
+							<section class="los-que-mas-anaden-usuarios-usuario-puntos flex-container justify-content-center">
+								<p>(5)</p>
+							</section>
+							<section class="los-que-mas-anaden-usuarios-usuario-nombre">
+								<p>Pedro</p>
+							</section>
+						</article>
+					</li>
+					<li>
+						<article class="los-que-mas-anaden-usuarios-usuario flex-container">
+							<section class="los-que-mas-anaden-usuarios-usuario-puntos flex-container justify-content-center">
+								<p>(5)</p>
+							</section>
+							<section class="los-que-mas-anaden-usuarios-usuario-nombre">
+								<p>Pedro</p>
+							</section>
+						</article>
+					</li>
+				</ol>
+			</section>
+		</section>
+		<section id="los-que-mas-opinan">
+			<h3>Los que más opinan:</h3>
+			<section id="los-que-mas-opinan-usuarios">
+				<ol>
+					<li>
+						<article class="los-que-mas-opinan-usuarios-usuario flex-container">
+							<section class="los-que-mas-opinan-usuarios-usuario-puntos flex-container justify-content-center">
+								<p>(5)</p>
+							</section>
+							<section class="los-que-mas-opinan-usuarios-usuario-nombre ">
+								<p>Pedro</p>
+							</section>
+						</article>
+					</li>
+					<li>
+						<article class="los-que-mas-opinan-usuarios-usuario flex-container">
+							<section class="los-que-mas-opinan-usuarios-usuario-puntos flex-container justify-content-center">
+								<p>(5)</p>
+							</section>
+							<section class="los-que-mas-opinan-usuarios-usuario-nombre ">
+								<p>Pedro</p>
+							</section>
+						</article>
+					</li>
+					<li>
+						<article class="los-que-mas-opinan-usuarios-usuario flex-container">
+							<section class="los-que-mas-opinan-usuarios-usuario-puntos flex-container justify-content-center">
+								<p>(5)</p>
+							</section>
+							<section class="los-que-mas-opinan-usuarios-usuario-nombre ">
+								<p>Pedro</p>
+							</section>
+						</article>
+					</li>
+				</ol>
+			</section>
+		</section>
+	</aside>
+	</div>
+
+	<footer class="row border-top">
+		
+	</footer>
+	<script src="templates/js/base.js"></script>
+	{% block javaScript %}{% endblock %} 
+</body>
+</html>

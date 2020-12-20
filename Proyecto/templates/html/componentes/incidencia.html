@@ -1,0 +1,163 @@
+<article class="incidencia card border border-primary">
+	<div class="card-body">
+		<section class="incidencia-titulo">
+			<h3 class="card-title">{{incidencia.get_titulo()}}</h3>
+		</section>
+		<section class="incidencia-cuerpo">
+			<section class="incidencia-cuerpo-datos card">
+				<dl class="card-body">
+					<div class="row">
+						<section class="col-sm-4">
+							<dt>Lugar:</dt>
+					  		<dd>{{incidencia.get_lugar()}}</dd>
+						</section>
+						<section class="col-sm-4">
+							<dt>Fecha: </dt>
+					  		<dd>{{incidencia.get_fecha()}} {{incidencia.get_hora()}}</dd>
+						</section>
+						<section class="col-sm-4">
+							<dt>Creado por: </dt>
+					  		<dd>{{incidencia.get_nombreUsuario()}}</dd>
+						</section>
+					</div>
+					<div class="row">
+						<section class="col-sm-4">
+							<dt>Palabras clave: </dt>
+					  		<dd>
+								{% for palabra in incidencia.get_palabras_clave()%}
+					  			{{palabra.get_palabra()}},
+					  			{% endfor %}
+					  		</dd>
+						</section>
+						<section class="col-sm-4">
+							<dt>Estado: </dt>
+					  		<dd>{{incidencia.get_estado()}}</dd>
+						</section>
+						<section class="col-sm-4">
+							<dt>Valoracion: </dt>
+					  		<dd class="incidencia-cuerpo-datos-valoracion" >
+					  			{% if incidencia.get_valoracion()%}
+					  			{{incidencia.get_valoracion()}}
+					  			{% else %}
+					  			0
+					  			{%endif%}
+					  		</dd>
+						</section>
+					</div>
+				</dl>
+			</section>
+			<div class="card">
+				<div class="card-body">
+					<section class="incidencia-cuerpo-descripcion">
+						{{incidencia.get_descripcion()}}
+					</section>
+					<section class="incidencia-cuerpo-imagenes flex-container flex-wrap-wrap justify-content-space-around align-items-center">
+						<img src="templates/img/farola1.jpg">
+						<img src="templates/img/farola2.jpg">
+					</section>
+				</div>
+			</div>
+			<div class="card">
+
+				<section class="incidencia-cuerpo-comentarios card-body">
+					<h1 class="card-title">Cometarios</h1>
+					<!-- Repetir para todos los comentarios -->
+					{% for cometario in incidencia.get_comentarios()%}
+					<article class="incidencia-cuerpo-comentarios-comentario bg-light">
+						<div class="row">
+							{% if tipoUsuario == "Administrador" %}
+							<div class="card col-sm-11">
+							{% else %}
+							<div class="card col-sm-12">
+							{% endif %}
+								<div class="row card-body">
+									<section class="incidencia-cuerpo-comentarios-comentario-datos col-sm-2">
+										<section class="incidencia-cuerpo-comentarios-comentario-datos-autor">
+											<p>{{cometario.get_nombreUsuario()}}</p>
+										</section>
+										<section class="incidencia-cuerpo-comentarios-comentario-datos-fecha">
+											<time>{{cometario.get_fecha()}} {{cometario.get_hora()}}</time>
+										</section>
+									</section>
+									<section class="incidencia-cuerpo-comentarios-comentario-texto col-sm-9">
+										<p>
+											{{cometario.get_comentario()}}
+										</p>
+									</section>
+								</div>
+							</div>
+							{% if tipoUsuario == "Administrador" %}
+							
+							<section class="col-sm-1 d-flex align-items-center">
+								<button class="boton-icono-accion" 
+										onclick="
+												eliminarCometarioIncidencia( {{ loop.parent.loop.index0 }} ,  {{ loop.index0 }})
+												">
+									<i class='fas fa-trash-alt incidencia-cuerpo-comentarios-comentario-eliminar'></i>
+								</button>
+							</section>
+							{% endif %}
+						</div>
+					</article>
+					{% endfor %}
+				</section>
+			
+				<section class="incidencia-cuerpo-anadir_comentario card-body" hidden>
+					<div class="flex-container flex-direction-column">
+						<div class="form-group">
+						    <label class="incidencia-cuerpo-anadir_comentario-cometario">Añade un nuevo cometario
+						    	<textarea class="form-control incidencia-cuerpo-anadir_comentario-cometario-textarea" rows="3"></textarea>
+						    </label>
+						  </div>
+						<button class="btn btn-primary" 
+								onclick="
+										set_comentario({{incidencia.get_id()}}, {{ loop.index0 }})
+										">
+							Enviar Comentario
+						</button>
+					</div>
+					<section class="incidencia-cuerpo-anadir_comentario-result">
+						<p></p>
+					</section>
+				</section>
+			</div>
+			<section class="incidencia-cuerpo-acciones card flex-row justify-content-end">
+					<button class="boton-icono-accion" 
+							onclick="
+									set_valoracion({{incidencia.get_id()}},  1, {{ loop.index0 }})
+									">
+						<i class='fas fa-plus-circle incidencia-cuerpo-acciones-positiva'></i>
+					</button>
+					<button class="boton-icono-accion" 
+							onclick="
+									set_valoracion({{incidencia.get_id()}}, -1, {{ loop.index0 }})
+									">
+						<i class='fas fa-minus-circle incidencia-cuerpo-acciones-negativa'></i>
+					</button>
+					<button class="boton-icono-accion" 
+							onclick="
+									mostrarComentarios( {{ loop.index0 }} )
+									">
+						<i class='fas fa-comment-alt incidencia-cuerpo-acciones-cometario'></i>
+					</button>
+					{% if tipoUsuario == "Administrador" or (idUsuario and idUsuario == incidencia.get_idUsuario()) %}
+
+					<button class="boton-icono-accion" 
+							onclick="
+									editarIncidencia( {{ incidencia.get_id() }} )
+									">
+						<i class='fas fa-pen incidencia-cuerpo-acciones-editar'></i>
+					</button>
+					<button class="boton-icono-accion" 
+							onclick="
+									eliminarIncidencia( {{ incidencia.get_id() }}, {{ loop.index0 }}  )
+									">
+						<i class='fas fa-trash-alt incidencia-cuerpo-acciones-eliminar'></i>
+					</button>
+					{% endif %}
+			</section>
+		</section>
+		
+	</div>
+	
+</article>

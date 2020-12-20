@@ -1,0 +1,9 @@
+#datos_usuario {
+	margin: 2em;
+	background-color: #80b3ff;
+	padding: 1em; 
+	border-radius: 1em; 
+}
+#msgErrorPass {
+	color: red; 
+}

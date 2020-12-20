@@ -1,0 +1,110 @@
+{% extends "templates/html/base.html" %}
+{% block jquery %}
+{% endblock %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="templates/css/formularioUsuario.css"/>
+{% endblock %}
+{% block main %}
+<section id="datos_usuario">
+	<h3>{{titulo}}</h3>
+	<section id="datos_usuario-formulario">
+		<form action="javascript:void(0);" id="form-datosUsuario">
+			<div class="form-group row">
+					<label for="form-nombre" class="col-sm-2 col-form-label">
+							Foto: 
+					</label>
+					<div class="col-sm-10">
+						<img src="">
+						<input type="file" name="pic" accept="image/*">
+					</div>
+			</div>
+			<div class="form-group row">
+				<label for="form-nombre" class="col-sm-2 col-form-label">
+					Nombre: 
+				</label>
+				<div class="col-sm-10">
+					<input type="text" id="form-nombre" name="nombre"  class="form-control">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="form-apellidos" class="col-sm-2 col-form-label">
+					Apellidos: 
+				</label>
+				<div class="col-sm-10">
+					<input type="text" id="form-apellidos" name="apellidos"  class="form-control">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="form-email" class="col-sm-2 col-form-label">
+					E-mail: 
+				</label>
+				<div class="col-sm-10">
+					<input type="email" id="form-email" name="email" class="form-control" autocomplete="username email">
+				</div>
+			</div>
+			<div class="form-group row">
+			    <label for="form-email1" class="col-sm-2 col-form-label">
+			    Contraseña
+				</label>
+			    <div class="col-sm-5">
+			      <input type="password" class="form-control" id="form-pass1" name="pass" placeholder="Password" autocomplete="current-password">
+						<p id="msgErrorPass" hidden></p>
+					</div>
+			    <div class="col-sm-5">
+			      <input type="password" class="form-control" id="form-pass2" name="pass-confirm" placeholder="Confirmar" autocomplete="current-password">
+			    </div>
+			</div>
+			<div class="form-group row">
+				<label for="form-direccion" class="col-sm-2 col-form-label">
+					Dirección: 
+				</label>
+				<div class="col-sm-10">
+					<input type="text" id="form-direccion" name="direccion" class="form-control">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="form-telefono" class="col-sm-2 col-form-label">
+					Teléfono: 
+				</label>
+				<div class="col-sm-10">
+					<input type="tel" id="form-telefono" name="telefono" class="form-control">
+				</div>
+			</div>
+		    <div class="form-group row">
+			    <label class="col-sm-2 col-form-label" for="form-rol">
+			      	Rol: 
+			    </label>
+				<div class="col-sm-10">
+				    <select class="custom-select" id="form-rol" name="rol" disabled>
+				        <option value="Colaborador" selected>Colaborador</option>
+						<option value="Sin_verificar">Administrador</option>
+				    </select>
+				</div>
+		    </div>
+		    <div class="form-group row">
+			    <label class="col-sm-2 col-form-label" for="form-estado">
+			      	Estado: 
+			    </label>
+				<div class="col-sm-10">
+				    <select class="custom-select" id="form-estado" name="estado" disabled>
+				        <option value="Activo" selected >Activo</option>
+						<option value="Sin_verificar">Sin_verificar</option>
+				    </select>
+				</div>
+		    </div>
+		    <div class="form-group row">
+		    	<div class="col-sm-2"></div>
+		    	<div class="col-sm-10">
+					<input type="submit" value="{{boton_enviar}}" class="btn btn-primary mb-2" onclick="verificarFormulario()">
+		    	</div>
+			</div>
+		</form>
+		
+	</section>
+	
+</section>
+
+{% endblock %}
+{% block javaScript %}
+<script src="templates/js/formularioUsuario.js"></script>
+{% endblock %} 

@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% block jquery %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="templates/css/login.css"/>
+<link rel="stylesheet" type="text/css" href="templates/css/loged.css"/>
+<link rel="stylesheet" type="text/css" href="templates/css/incidencia.css"/>
+<link rel="stylesheet" type="text/css" href="templates/css/index.css"/>
+{% endblock %}
+{% block main %}
+<section id="listado-incidencias">
+	<section id="formulario-busqueda">
+		<form action="#" method="POST" class="flex-container flex-direction-column">
+			<h2>Criterios de búsqueda</h2>
+			<fieldset>
+				<legend>Ordenar por:</legend>
+				<div class="flex-container justify-content-space-around flex-wrap-wrap">
+					<label>
+						<input type="radio" name="ordenar" value="antiguedad">
+						Antigüedad
+					</label>
+					<label>
+						<input type="radio" name="ordenar" value="positivos">
+						Numero de positivos (de más a menos)
+					</label>
+					<label>
+						<input type="radio" name="ordenar" value="positivos-netos">
+						Numero de positivos netos (de más a menos)
+					</label>
+				</div>
+			</fieldset>
+			<fieldset>
+				<legend>Indicendias que contengan</legend>
+				<div  id="text-input">
+					<div class="row">
+						<label for="texto-busqueda" class="col-sm-3">
+							Texto de búsqueda
+						</label>
+						<input type="text" id="texto-busqueda" name="contiene" class="col-sm-6">
+					</div>
+					<div class="row">
+						<label class="col-sm-3">
+							Lugar
+						</label>
+						<input type="text" name="lugar" class="col-sm-6">
+					</div>
+				</div>
+			</fieldset>
+			<fieldset>
+				<legend>Estado</legend>
+				<div class="flex-container justify-content-space-around flex-wrap-wrap">
+					<label>
+						<input type="checkbox" name="Estado[]" value="Pendiente">Pendiente
+					</label>
+					<label>
+						<input type="checkbox" name="Estado[]" value="Comprobada">Comprobada
+					</label>
+					<label>
+						<input type="checkbox" name="Estado[]" value="Tramitada">Tramitada
+					</label>
+					<label>
+						<input type="checkbox" name="Estado[]" value="Irresoluble">Irresoluble
+					</label>
+					<label>
+						<input type="checkbox" name="Estado[]" value="Resuelta">Resuelta
+					</label>
+				</div>
+			</fieldset>
+			<label>
+				Incidencias por página: 
+				<select>
+					<option name="Incidencias-Pagina" value="5">
+						5 incidencias
+					</option>
+					<option name="Incidencias-Pagina" value="20">
+						20 incidencias 
+					</option>
+					<option name="Incidencias-Pagina" value="50">
+						50 incidencias 
+					</option>
+					<option name="Incidencias-Pagina" value="100">
+						100 incidencias
+					</option>
+				</select>
+			</label>
+			<input type="submit" value="Aplicar criterios de búsqueda">
+		</form>
+	</section>
+	<section id="incidencias">
+		{% if incidencias%}
+		{% for incidencia in incidencias %}
+		{% include 'componentes/incidencia.html' %}
+		{% endfor %}
+		{% else %}
+		<div class="alert alert-success mx-3 d-flex justify-content-center" role="alert">
+		  	<strong style="font-size: larger;">No hay incidencias en este momento</strong>
+		</div>
+		{% endif %}
+	</section>
+</section>
+{% endblock %}
+{% block javaScript %}
+<script src="templates/js/incidencia.js"></script>
+{% endblock %} 

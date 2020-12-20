@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block jquery %}
+{% endblock %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="templates/css/formularioIncidencia.css"/>
+{% endblock %}
+{% block main %}
+<section id="formulario_incidencia">
+	<h3>{{titulo}}</h3>
+	{% if resultado %}
+		{{resultado | raw}}
+	{% endif%}
+	<section id="formulario_incidencia-formulario">
+		<h4>Datos Principales</h4>
+		<form onsubmit="verificarFormularioIncidencia();return false;" id="form-formulario_incidencia" method="POST">
+			<div class="form-group row" hidden="">
+				<div class="col-sm-10">
+					<input type="text" name="action"  value="insertar" {{required}}/>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="form-titulo" class="col-sm-2 col-form-label">
+					Título: 
+				</label>
+				<div class="col-sm-10">
+					<input type="text" id="form-titulo" name="titulo"  class="form-control" {{required}}/>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="form-descripcion" class="col-sm-2 col-form-label">
+					Descripción: 
+				</label>
+				<div class="col-sm-10">
+					<textarea class="form-control" id="form-descripcion" name="descripcion" rows="3" {{required}} form="form-formulario_incidencia"></textarea>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="form-lugar" class="col-sm-2 col-form-label">
+					Lugar: 
+				</label>
+				<div class="col-sm-10">
+					<input type="text" id="form-lugar" name="lugar" class="form-control" {{required}} >
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="form-palabras_clave" class="col-sm-2 col-form-label">
+					Palabras Clave: 
+				</label>
+				<div class="col-sm-10">
+					<input type="text" id="form-palabras_clave" name="palabras_clave" class="form-control">
+				</div>
+			</div>
+		    <div class="form-group row">
+		    	<div class="col-sm-2"></div>
+		    	<div class="col-sm-10">
+					<input type="submit" value="{{boton_enviar}}" class="btn btn-primary mb-2">
+		    	</div>
+			</div>
+		</form>
+		
+	</section>
+	
+</section>
+
+{% endblock %}
+{% block javaScript %}
+<script src="templates/js/formularioIncidencia.js"></script>
+{% endblock %} 

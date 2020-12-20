@@ -1,0 +1,37 @@
+#formulario-busqueda {
+	margin: 1em;
+}
+
+#text-input input{
+	/*margin-top: 0.4em;
+	margin-bottom: 0.4em;*/
+	height: 60%;
+}
+
+#formulario-busqueda > form > input[type="submit"]{
+	width: fit-content; 
+	padding-left: 1em;
+	padding-right: 1em;
+	/*centramos*/
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+#formulario-busqueda {
+	/*background-color: #ffe6cc;*/
+	background-color: #cce0ff;
+}
+
+
+#formulario-busqueda  > form > fieldset, h2{
+	/*background-color: #ffcc99;*/
+	background-color: #80b3ff;
+}
+#formulario-busqueda > form > input {
+	margin-bottom: 1em; 
+}
+#formulario-busqueda > form > label {
+	margin-top: 1em;
+}
+

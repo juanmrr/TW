@@ -1,0 +1,19 @@
+<section id="loged" class="border-bottom">
+  <section id="loged-nombre-usuario">
+    <p>{{ usuario.get_user() }}</p>
+  </section>
+  <section id="loged-tipo-usuario">
+    <p>{{ usuario.get_tipo() }}</p>
+  </section>
+  <section class="imgcontainer" id="loged-div-imagen">
+    <img class="img-circle" src="./templates/img/persona.jpg" alt="ImagenUsuario" id="imagenUsuario">
+  </section>
+  <section id="loged-botones" class="flex-container justify-content-space-around">
+    <section id="loged-botones-editar">
+      <a href="./formularioUsuario.php"><button>Editar</button></a>
+    </section>
+    <section id="loged-botones-logout">
+      <button onclick="logout()">Logout</button>
+    </section>
+  </section>
+</section>

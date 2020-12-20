@@ -1,0 +1,12 @@
+#loged-div-imagen > img{
+	max-height: 6em;
+	max-width: 6em;
+}
+
+#loged-nombre-usuario > p{
+	font-weight: bold;
+}
+
+#loged-tipo-usuario > p{
+	color: blue; 
+}
